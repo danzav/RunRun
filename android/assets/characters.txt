@@ -1,0 +1,117 @@
+characters.png
+size: 1000, 1694
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Musica_Boton
+  rotate: false
+  xy: 478, 200
+  size: 194, 172
+  orig: 194, 172
+  offset: 0, 0
+  index: 1
+Niveles_Play
+  rotate: false
+  xy: 0, 0
+  size: 80, 78
+  orig: 80, 78
+  offset: 0, 0
+  index: 1
+Pantalla_de_Lose
+  rotate: false
+  xy: 0, 416
+  size: 976, 631
+  orig: 976, 631
+  offset: 0, 0
+  index: 1
+Pantalla_Pausa
+  rotate: false
+  xy: 0, 1047
+  size: 1000, 647
+  orig: 1000, 647
+  offset: 0, 0
+  index: 1
+Personaje_run1
+  rotate: false
+  xy: 816, 0
+  size: 134, 139
+  orig: 134, 139
+  offset: 0, 0
+  index: 1
+Personaje_Run2
+  rotate: false
+  xy: 312, 0
+  size: 124, 142
+  orig: 124, 142
+  offset: 0, 0
+  index: 2
+Personaje_Run3
+  rotate: false
+  xy: 688, 0
+  size: 128, 141
+  orig: 128, 141
+  offset: 0, 0
+  index: 3
+Personaje_run4
+  rotate: false
+  xy: 436, 0
+  size: 124, 143
+  orig: 124, 143
+  offset: 0, 0
+  index: 4
+Personaje_run5
+  rotate: false
+  xy: 0, 200
+  size: 136, 141
+  orig: 136, 141
+  offset: 0, 0
+  index: 5
+Return
+  rotate: false
+  xy: 80, 0
+  size: 113, 109
+  orig: 113, 109
+  offset: 0, 0
+  index: 0
+Villano_nivel1_1
+  rotate: false
+  xy: 136, 200
+  size: 165, 141
+  orig: 165, 141
+  offset: 0, 0
+  index: 1
+Villano_nivel1_2
+  rotate: false
+  xy: 672, 200
+  size: 197, 124
+  orig: 197, 124
+  offset: 0, 0
+  index: 2
+Villano_nivel2_1
+  rotate: false
+  xy: 301, 200
+  size: 177, 76
+  orig: 177, 76
+  offset: 0, 0
+  index: 1
+Villano_nivel2_2
+  rotate: false
+  xy: 0, 372
+  size: 201, 44
+  orig: 201, 44
+  offset: 0, 0
+  index: 2
+Villano_nivel3_1
+  rotate: false
+  xy: 193, 0
+  size: 119, 199
+  orig: 119, 199
+  offset: 0, 0
+  index: 0
+Villano_nivel3_2
+  rotate: false
+  xy: 560, 0
+  size: 128, 200
+  orig: 128, 200
+  offset: 0, 0
+  index: 2
