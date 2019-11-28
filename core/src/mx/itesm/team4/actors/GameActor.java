@@ -3,7 +3,7 @@ package mx.itesm.team4.actors;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import java.awt.Rectangle;
+import com.badlogic.gdx.math.Rectangle;
 
 import mx.itesm.team4.box2d.UserData;
 import mx.itesm.team4.enums.Difficulty;
