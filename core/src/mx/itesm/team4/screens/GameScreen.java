@@ -63,7 +63,7 @@ public class GameScreen extends Pantalla implements Screen {
         TextManager.initialize(300f,250f);
         SpriteBatch batch = new SpriteBatch();
         TextManager.displayMessage(batch);
-        GameManager.score += multiplier * delta;
+        GameManager.score +=delta;
         Constants.ENEMY_LINEAR_VELOCITY.scl(((delta*.010f)+(timer*1.0000000000000000000000000000000000000000000000000000000000001f)),0);
     }
 

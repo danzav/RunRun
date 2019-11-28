@@ -65,9 +65,9 @@ public class GameStage extends Stage implements ContactListener {
     private boolean tutorialShown;
 
     public Preferences highScore = Gdx.app.getPreferences("highScore");
-    public Preferences actual =Gdx.app.getPreferences("actual");
 
     public static int score1;
+    public static float scoreActual;
 
 
     public GameStage() {
@@ -81,6 +81,7 @@ public class GameStage extends Stage implements ContactListener {
         //onGameOver();
         //setUpPause();
         score1 = 0;
+        GameManager.score = 0;
         TextManager.initialize(200,200);
         SpriteBatch batch = new SpriteBatch();
         TextManager.displayMessage(batch);
@@ -93,7 +94,7 @@ public class GameStage extends Stage implements ContactListener {
                 new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT)));
 
         this.juego =inicio;
-
+        Constants.ENEMY_LINEAR_VELOCITY.set(-20f,0);
         setUpStageBase();
         setupTouchControlAreas();
         setupCamera();
@@ -151,16 +152,15 @@ public class GameStage extends Stage implements ContactListener {
         if ((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsEnemy(b)) ||
                 (BodyUtils.bodyIsEnemy(a) && BodyUtils.bodyIsRunner(b))) {
             runner.hit();
-            actual.putFloat("actual",score.getScore());
-
-            if(actual.getFloat("actual")> highScore.getFloat("highScore")){
-                highScore.putFloat("highScore", actual.getFloat("actual"));
+            if(GameManager.score*multiplier>=highScore.getFloat("highScore")){
+                highScore.putFloat("highScore", GameManager.score*multiplier);
                 highScore.flush();
             }
             highScore.flush();
-
-            System.out.println("game over");
+            System.out.println(highScore.getFloat("highScore"));
             System.out.println(scoreD.format(GameManager.score*multiplier));
+            scoreActual=GameManager.score;
+            GameManager.score=0;
             juego.setScreen(new GameOverScreen(juego));
 
         } else if ((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsGround(b)) ||

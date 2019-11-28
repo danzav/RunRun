@@ -2,6 +2,7 @@ package mx.itesm.team4.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,9 +17,14 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import mx.itesm.team4.RunRun;
+import javax.xml.soap.Text;
 
-public class GameOverScreen extends Pantalla implements Screen {
+import mx.itesm.team4.RunRun;
+import mx.itesm.team4.stages.GameStage;
+import mx.itesm.team4.utils.GameManager;
+import mx.itesm.team4.utils.TextManager;
+
+public class GameOverScreen extends Pantalla /*Implements Screen*/ {
 
     private Viewport viewport;
     private Stage stage;
@@ -27,15 +33,16 @@ public class GameOverScreen extends Pantalla implements Screen {
     private OrthographicCamera camara;
     private Viewport vista;
 
-    //batch
-    private SpriteBatch batch;
-
     //fondo
     private Texture texturaFondo;
     private Texture texturaGameOver;
 
     //escena de menu (botones)
     private Stage escenaGameOver;
+
+    //scores
+    private Preferences highScore=Gdx.app.getPreferences("highScore");
+    private float score;
 
     public GameOverScreen(RunRun inicio){
         this.juego = inicio;
@@ -45,10 +52,9 @@ public class GameOverScreen extends Pantalla implements Screen {
         camara=new OrthographicCamera();
         camara.position.set(ANCHO/2, ALTO/2, 0);
         camara.update();
-
         vista= new StretchViewport(ANCHO, ALTO, camara);
-
         batch= new SpriteBatch();
+        //SpriteBatch batch = new SpriteBatch();
     }
 
     private void cargarTexturas() {
@@ -61,7 +67,7 @@ public class GameOverScreen extends Pantalla implements Screen {
         TextureRegionDrawable btnRegresar=new TextureRegionDrawable(new TextureRegion(new Texture("Home_Boton_00.png")));
         TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Home_Push_Boton_00.png")));
         ImageButton btnRegreso= new ImageButton(btnRegresar,btnRegresarOprimido);
-        btnRegreso.setPosition(ANCHO/2-btnRegreso.getWidth(),btnRegreso.getHeight()+150);
+        btnRegreso.setPosition(ANCHO/2-btnRegreso.getWidth(),btnRegreso.getHeight()+100);
         //Siguientes Botones
         //Evento boton
         btnRegreso.addListener(new ClickListener(){
@@ -76,7 +82,7 @@ public class GameOverScreen extends Pantalla implements Screen {
         TextureRegionDrawable btnJugar=new TextureRegionDrawable(new TextureRegion(new Texture("Play_Boton_00.png")));
         TextureRegionDrawable btnJugarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Play_Push_Boton_00.png")));
         ImageButton btnInicioJuego= new ImageButton(btnJugar,btnJugarOprimido);
-        btnInicioJuego.setPosition(ANCHO/2+btnInicioJuego.getWidth()-100,btnInicioJuego.getHeight()+150);
+        btnInicioJuego.setPosition(ANCHO/2+btnInicioJuego.getWidth()-100,btnInicioJuego.getHeight()+100);
         //Siguientes Botones
         //Evento boton
         btnInicioJuego.addListener(new ClickListener(){
@@ -93,7 +99,7 @@ public class GameOverScreen extends Pantalla implements Screen {
         TextureRegionDrawable btnInst=new TextureRegionDrawable(new TextureRegion(new Texture("info_bnt_00.png")));
         TextureRegionDrawable btnInstOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("info_push_Bnt.png")));
         ImageButton btnInicioInst= new ImageButton(btnInst,btnInstOprimido);
-        btnInicioInst.setPosition(ANCHO/2+btnInicioInst.getWidth(),btnInicioInst.getHeight()+150);
+        btnInicioInst.setPosition(ANCHO/2+btnInicioInst.getWidth(),btnInicioInst.getHeight()+100);
 
         btnInicioInst.addListener(new ClickListener(){
             @Override
@@ -131,7 +137,12 @@ public class GameOverScreen extends Pantalla implements Screen {
         batch.draw(texturaFondo,0,0);
         batch.draw(texturaGameOver,ANCHO-texturaGameOver.getWidth()-100,ALTO-texturaGameOver.getHeight());
         batch.end();
+        TextManager.initialize(360,640);
+        //TextManager.displayMessage(batch);
+        TextManager.displayFinal(GameStage.scoreActual,highScore.getFloat("highScore"),batch);
+
         escenaGameOver.draw();
+
     }
 
     @Override

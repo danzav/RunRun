@@ -17,8 +17,8 @@ public class Constants {
 
     public static final float RUNNER_X = 2;
     public static final float RUNNER_Y = GROUND_Y + GROUND_HEIGHT;
-    public static final float RUNNER_WIDTH = 1f;
-    public static final float RUNNER_HEIGHT = 2f;
+    public static final float RUNNER_WIDTH = 2f;
+    public static final float RUNNER_HEIGHT = 2.3f;
 
     public static final String BACKGROUND_IMAGE_PATH = "Fondo largo.png";
     public static final String GROUND_IMAGE_PATH = "ground.png";
