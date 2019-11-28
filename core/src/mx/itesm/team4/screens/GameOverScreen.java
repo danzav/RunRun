@@ -32,6 +32,7 @@ public class GameOverScreen extends Pantalla implements Screen {
 
     //fondo
     private Texture texturaFondo;
+    private Texture texturaGameOver;
 
     //escena de menu (botones)
     private Stage escenaGameOver;
@@ -51,7 +52,8 @@ public class GameOverScreen extends Pantalla implements Screen {
     }
 
     private void cargarTexturas() {
-        texturaFondo=new Texture("Pantalla_Acercade_00.png");
+        texturaFondo=new Texture("Fondo_Game_Over.png");
+        texturaGameOver=new Texture("Pantalla_score_00.png");
     }
     private void crearMenu() {
         escenaGameOver=new Stage(vista);
@@ -86,7 +88,15 @@ public class GameOverScreen extends Pantalla implements Screen {
 
     @Override
     public void render(float delta) {
+        borrarPantalla();
+        //batch escala de acuerdo a la vista
+        batch.setProjectionMatrix(camara.combined);
 
+        batch.begin();
+        batch.draw(texturaFondo,0,0);
+        batch.draw(texturaGameOver,ANCHO-texturaGameOver.getWidth()-100,ALTO-texturaGameOver.getHeight());
+        batch.end();
+        escenaGameOver.draw();
     }
 
     @Override
