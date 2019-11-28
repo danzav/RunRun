@@ -1,38 +1,22 @@
 package mx.itesm.team4.stages;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
-import java.awt.font.GraphicAttribute;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-
-import javax.xml.soap.Text;
 
 import mx.itesm.team4.RunRun;
 import mx.itesm.team4.actors.Background;
@@ -44,11 +28,7 @@ import mx.itesm.team4.actors.menu.PauseButton;
 import mx.itesm.team4.actors.menu.StartButton;
 import mx.itesm.team4.enums.Difficulty;
 import mx.itesm.team4.enums.GameState;
-import mx.itesm.team4.screens.GameOverScreen;
-import mx.itesm.team4.screens.GameScreen;
-import mx.itesm.team4.screens.Pantalla;
 import mx.itesm.team4.screens.PantallaMenu;
-import mx.itesm.team4.screens.PantallaTitulo;
 import mx.itesm.team4.utils.BodyUtils;
 import mx.itesm.team4.utils.Constants;
 import mx.itesm.team4.utils.GameManager;
@@ -69,7 +49,7 @@ public class GameStage extends Stage implements ContactListener {
     private StartButton startButton;
     private final float TIME_STEP = 1 / 300f;
     private float accumulator = 0f;
-    private RunRun juego = new RunRun();
+    private RunRun juego;
 
     private OrthographicCamera camera;
     private Viewport vista;
@@ -83,6 +63,8 @@ public class GameStage extends Stage implements ContactListener {
     private float totalTimePassed;
     private boolean tutorialShown;
 
+    public Preferences highScore = Gdx.app.getPreferences("highScore");
+    public Preferences actual =Gdx.app.getPreferences("actual");
 
     public static int score1;
 
@@ -101,13 +83,16 @@ public class GameStage extends Stage implements ContactListener {
         TextManager.initialize(200,200);
         SpriteBatch batch = new SpriteBatch();
         TextManager.displayMessage(batch);
-
-
+        if(!highScore.contains("highScore")){
+            highScore.putFloat("highScore",0F);
+        }
     }
     public GameStage(RunRun inicio){
         super(new ScalingViewport(Scaling.stretch, VIEWPORT_WIDTH, VIEWPORT_HEIGHT,
                 new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT)));
+
         this.juego =inicio;
+
         setUpStageBase();
         setupTouchControlAreas();
         setupCamera();
@@ -165,6 +150,14 @@ public class GameStage extends Stage implements ContactListener {
         if ((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsEnemy(b)) ||
                 (BodyUtils.bodyIsEnemy(a) && BodyUtils.bodyIsRunner(b))) {
             runner.hit();
+            actual.putFloat("actual",score.getScore());
+
+            if(actual.getFloat("actual")> highScore.getFloat("highScore")){
+                highScore.putFloat("highScore", actual.getFloat("actual"));
+                highScore.flush();
+            }
+            highScore.flush();
+
             System.out.println("game over");
             System.out.println(scoreD.format(GameManager.score*multiplier));
             juego.setScreen(new PantallaMenu(juego));
