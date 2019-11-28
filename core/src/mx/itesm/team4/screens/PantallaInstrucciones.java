@@ -57,7 +57,7 @@ public class PantallaInstrucciones extends Pantalla{
         escenaAD=new Stage(vista);
         //boton Regresar a Juego
         TextureRegionDrawable btnRegresar=new TextureRegionDrawable(new TextureRegion(new Texture("Return.png")));
-        TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Return_push.png")));
+        TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Return_Push.png")));
         ImageButton btnRegreso= new ImageButton(btnRegresar,btnRegresarOprimido);
         btnRegreso.setPosition(ANCHO - btnRegresar.getMinWidth() - 80,ALTO-btnRegresar.getMinHeight()- 55);
         //Siguientes Botones
