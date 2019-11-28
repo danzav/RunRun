@@ -52,7 +52,7 @@ class PantallaAcercaDe extends Pantalla {
         escenaAD=new Stage(vista);
         //boton Regresar a Juego
         TextureRegionDrawable btnRegresar=new TextureRegionDrawable(new TextureRegion(new Texture("Return.png")));
-        TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Return_push.png")));
+        TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Return_Push.png")));
         ImageButton btnRegreso= new ImageButton(btnRegresar,btnRegresarOprimido);
         btnRegreso.setPosition(0,ALTO-btnRegresar.getMinHeight());
         //Siguientes Botones
