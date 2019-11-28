@@ -20,7 +20,7 @@ public class Constants {
     public static final float RUNNER_WIDTH = 2f;
     public static final float RUNNER_HEIGHT = 2.3f;
 
-    public static final String BACKGROUND_IMAGE_PATH = "Fondo largo.png";
+    public static final String BACKGROUND_IMAGE_PATH = "Fondo Largo.png";
     public static final String GROUND_IMAGE_PATH = "ground.png";
     public static final float WORLD_TO_SCREEN = 32;
     public static final String FONT_NAME = "roboto_bold.ttf";
