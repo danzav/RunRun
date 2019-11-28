@@ -58,10 +58,10 @@ public class GameOverScreen extends Pantalla implements Screen {
     private void crearMenu() {
         escenaGameOver=new Stage(vista);
         //boton Regresar a Juego
-        TextureRegionDrawable btnRegresar=new TextureRegionDrawable(new TextureRegion(new Texture("Return.png")));
-        TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Return_push.png")));
+        TextureRegionDrawable btnRegresar=new TextureRegionDrawable(new TextureRegion(new Texture("Home_Boton_00.png")));
+        TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Home_Push_Boton_00.png")));
         ImageButton btnRegreso= new ImageButton(btnRegresar,btnRegresarOprimido);
-        btnRegreso.setPosition(0,ALTO-btnRegresar.getMinHeight());
+        btnRegreso.setPosition(ANCHO/2-btnRegreso.getWidth(),btnRegreso.getHeight()+150);
         //Siguientes Botones
         //Evento boton
         btnRegreso.addListener(new ClickListener(){
@@ -73,6 +73,41 @@ public class GameOverScreen extends Pantalla implements Screen {
             }
         });
 
+        TextureRegionDrawable btnJugar=new TextureRegionDrawable(new TextureRegion(new Texture("Play_Boton_00.png")));
+        TextureRegionDrawable btnJugarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Play_Push_Boton_00.png")));
+        ImageButton btnInicioJuego= new ImageButton(btnJugar,btnJugarOprimido);
+        btnInicioJuego.setPosition(ANCHO/2+btnInicioJuego.getWidth()-100,btnInicioJuego.getHeight()+150);
+        //Siguientes Botones
+        //Evento boton
+        btnInicioJuego.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                //INSTRUCCIONES
+                juego.setScreen(new GameScreen(juego));
+
+            }
+        });
+
+        //instrucciones boton
+        TextureRegionDrawable btnInst=new TextureRegionDrawable(new TextureRegion(new Texture("info_bnt_00.png")));
+        TextureRegionDrawable btnInstOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("info_push_Bnt.png")));
+        ImageButton btnInicioInst= new ImageButton(btnInst,btnInstOprimido);
+        btnInicioInst.setPosition(ANCHO/2+btnInicioInst.getWidth(),btnInicioInst.getHeight()+150);
+
+        btnInicioInst.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                //INSTRUCCIONES
+                juego.setScreen(new PantallaInstrucciones(juego));
+
+            }
+        });
+
+
+        escenaGameOver.addActor(btnInicioInst);
+        escenaGameOver.addActor(btnInicioJuego);
         escenaGameOver.addActor(btnRegreso);
 
 
