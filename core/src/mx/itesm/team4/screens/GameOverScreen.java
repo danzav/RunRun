@@ -67,7 +67,7 @@ public class GameOverScreen extends Pantalla /*Implements Screen*/ {
         TextureRegionDrawable btnRegresar=new TextureRegionDrawable(new TextureRegion(new Texture("Home_Boton_00.png")));
         TextureRegionDrawable btnRegresarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Home_Push_Boton_00.png")));
         ImageButton btnRegreso= new ImageButton(btnRegresar,btnRegresarOprimido);
-        btnRegreso.setPosition(ANCHO/2-btnRegreso.getWidth(),btnRegreso.getHeight()+100);
+        btnRegreso.setPosition(ANCHO/2-btnRegreso.getWidth()-20,btnRegreso.getHeight()+100);
         //Siguientes Botones
         //Evento boton
         btnRegreso.addListener(new ClickListener(){
@@ -82,7 +82,7 @@ public class GameOverScreen extends Pantalla /*Implements Screen*/ {
         TextureRegionDrawable btnJugar=new TextureRegionDrawable(new TextureRegion(new Texture("Play_Boton_00.png")));
         TextureRegionDrawable btnJugarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Play_Push_Boton_00.png")));
         ImageButton btnInicioJuego= new ImageButton(btnJugar,btnJugarOprimido);
-        btnInicioJuego.setPosition(ANCHO/2+btnInicioJuego.getWidth()-100,btnInicioJuego.getHeight()+100);
+        btnInicioJuego.setPosition(ANCHO/2+btnInicioJuego.getHeight()-30,btnInicioJuego.getHeight()+100);
         //Siguientes Botones
         //Evento boton
         btnInicioJuego.addListener(new ClickListener(){
@@ -99,7 +99,7 @@ public class GameOverScreen extends Pantalla /*Implements Screen*/ {
         TextureRegionDrawable btnInst=new TextureRegionDrawable(new TextureRegion(new Texture("info_bnt_00.png")));
         TextureRegionDrawable btnInstOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("info_push_Bnt.png")));
         ImageButton btnInicioInst= new ImageButton(btnInst,btnInstOprimido);
-        btnInicioInst.setPosition(ANCHO/2+btnInicioInst.getWidth(),btnInicioInst.getHeight()+100);
+        btnInicioInst.setPosition(ANCHO/2+btnInicioInst.getWidth()+150,btnInicioInst.getHeight()+100);
 
         btnInicioInst.addListener(new ClickListener(){
             @Override
