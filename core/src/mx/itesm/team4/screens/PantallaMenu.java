@@ -43,7 +43,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnJugar=new TextureRegionDrawable(new TextureRegion(new Texture("Play_Boton_00.png")));
         TextureRegionDrawable btnJugarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Play_Push_Boton_00.png")));
         ImageButton btnInicioJuego= new ImageButton(btnJugar,btnJugarOprimido);
-        btnInicioJuego.setPosition(50,ALTO/2);
+        btnInicioJuego.setPosition(640,ALTO/2);
         //Siguientes Botones
         //Evento boton
         btnInicioJuego.addListener(new ClickListener(){
@@ -94,7 +94,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnMutePress= new TextureRegionDrawable(new TextureRegion(new Texture("Musica_Boton_Push_00.png")));
         if(juego.isPlaying()){
             ImageButton btnMute= new ImageButton(btnMuteOFF,btnMutePress,btnMuteOn);
-            btnMute.setPosition(1000,ALTO/2);
+            btnMute.setPosition(ANCHO-btnMute.getHeight()-20,ALTO-btnMute.getHeight());
 
             btnMute.addListener(new ClickListener() {
                 @Override
