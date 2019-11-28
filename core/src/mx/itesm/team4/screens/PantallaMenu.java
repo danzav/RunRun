@@ -43,7 +43,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnJugar=new TextureRegionDrawable(new TextureRegion(new Texture("Play_Boton_00.png")));
         TextureRegionDrawable btnJugarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Play_Push_Boton_00.png")));
         ImageButton btnInicioJuego= new ImageButton(btnJugar,btnJugarOprimido);
-        btnInicioJuego.setPosition(640,ALTO/2);
+        btnInicioJuego.setPosition(640-btnInicioJuego.getHeight()+30,0);
         //Siguientes Botones
         //Evento boton
         btnInicioJuego.addListener(new ClickListener(){
@@ -60,7 +60,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnAcerDe=new TextureRegionDrawable(new TextureRegion(new Texture("acercade_00.png")));
         TextureRegionDrawable btnAcerDeOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Acercade_push.png")));
         ImageButton btnInicioAcerca= new ImageButton(btnAcerDe,btnAcerDeOprimido);
-        btnInicioAcerca.setPosition(300,ALTO/2);
+        btnInicioAcerca.setPosition(400,0);
 
         btnInicioAcerca.addListener(new ClickListener(){
             @Override
@@ -73,10 +73,10 @@ public class PantallaMenu extends Pantalla {
         });
 
         //instrucciones boton
-        TextureRegionDrawable btnInst=new TextureRegionDrawable(new TextureRegion(new Texture("infromacion_bnt_00.png")));
-        TextureRegionDrawable btnInstOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("infromacion_push_Bnt.png")));
+        TextureRegionDrawable btnInst=new TextureRegionDrawable(new TextureRegion(new Texture("info_bnt_00.png")));
+        TextureRegionDrawable btnInstOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("info_push_Bnt.png")));
         ImageButton btnInicioInst= new ImageButton(btnInst,btnInstOprimido);
-        btnInicioInst.setPosition(700,ALTO/2);
+        btnInicioInst.setPosition(732,0);
 
         btnInicioInst.addListener(new ClickListener(){
             @Override
