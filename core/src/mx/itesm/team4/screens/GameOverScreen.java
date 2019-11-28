@@ -111,6 +111,47 @@ public class GameOverScreen extends Pantalla /*Implements Screen*/ {
             }
         });
 
+        //boton settings
+        TextureRegionDrawable btnMuteOFF=new TextureRegionDrawable(new TextureRegion(new Texture("Musica_Boton_00.png")));
+        TextureRegionDrawable btnMuteOn= new TextureRegionDrawable(new TextureRegion(new Texture("Mute_Boton_00.png")));
+        TextureRegionDrawable btnMutePress= new TextureRegionDrawable(new TextureRegion(new Texture("Musica_Boton_Push_00.png")));
+        if(juego.isPlaying()){
+            ImageButton btnMute= new ImageButton(btnMuteOFF,btnMutePress,btnMuteOn);
+            btnMute.setPosition(ANCHO-btnMute.getHeight()-20,ALTO-btnMute.getHeight());
+
+            btnMute.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    if(juego.isPlaying()){
+                        juego.stopMusic();
+                    }
+                    else{
+                        juego.playMusic();
+                    }
+                }
+            });
+            escenaGameOver.addActor(btnMute);
+        }
+        else{
+            ImageButton btnMute= new ImageButton(btnMuteOn,btnMutePress,btnMuteOFF);
+            btnMute.setPosition(ANCHO-btnMute.getHeight()-20,ALTO-btnMute.getHeight());
+
+            btnMute.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    if(juego.isPlaying()){
+                        juego.stopMusic();
+                    }
+                    else{
+                        juego.playMusic();
+                    }
+                }
+            });
+            escenaGameOver.addActor(btnMute);
+        }
+
 
         escenaGameOver.addActor(btnInicioInst);
         escenaGameOver.addActor(btnInicioJuego);

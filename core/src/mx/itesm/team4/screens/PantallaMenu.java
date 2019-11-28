@@ -88,7 +88,7 @@ public class PantallaMenu extends Pantalla {
             }
         });
 
-        //boton settings
+        //boton mute
         TextureRegionDrawable btnMuteOFF=new TextureRegionDrawable(new TextureRegion(new Texture("Musica_Boton_00.png")));
         TextureRegionDrawable btnMuteOn= new TextureRegionDrawable(new TextureRegion(new Texture("Mute_Boton_00.png")));
         TextureRegionDrawable btnMutePress= new TextureRegionDrawable(new TextureRegion(new Texture("Musica_Boton_Push_00.png")));
