@@ -86,7 +86,15 @@ public class GameOverScreen extends Pantalla implements Screen {
 
     @Override
     public void render(float delta) {
+        borrarPantalla();
+        //batch escala de acuerdo a la vista
+        batch.setProjectionMatrix(camara.combined);
 
+        batch.begin();
+        batch.draw(texturaFondo,0,0);
+        //textoSprite.render(batch);
+        batch.end();
+        escenaGameOver.draw();
     }
 
     @Override

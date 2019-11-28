@@ -28,6 +28,7 @@ import mx.itesm.team4.actors.menu.PauseButton;
 import mx.itesm.team4.actors.menu.StartButton;
 import mx.itesm.team4.enums.Difficulty;
 import mx.itesm.team4.enums.GameState;
+import mx.itesm.team4.screens.GameOverScreen;
 import mx.itesm.team4.screens.PantallaMenu;
 import mx.itesm.team4.utils.BodyUtils;
 import mx.itesm.team4.utils.Constants;
@@ -160,7 +161,7 @@ public class GameStage extends Stage implements ContactListener {
 
             System.out.println("game over");
             System.out.println(scoreD.format(GameManager.score*multiplier));
-            juego.setScreen(new PantallaMenu(juego));
+            juego.setScreen(new GameOverScreen(juego));
 
         } else if ((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsGround(b)) ||
                 (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsRunner(b))) {
