@@ -53,7 +53,7 @@ public class GameOverScreen extends Pantalla implements Screen {
 
     private void cargarTexturas() {
         texturaFondo=new Texture("Fondo_Game_Over.png");
-        texturaGameOver=new Texture("Pantalla_Victory_00.png");
+        texturaGameOver=new Texture("Pantalla_score_00.png");
     }
     private void crearMenu() {
         escenaGameOver=new Stage(vista);
