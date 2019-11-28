@@ -72,9 +72,7 @@ class PantallaAcercaDe extends Pantalla {
         Gdx.input.setInputProcessor(escenaAD);
     }
 
-    private void cargarTexturas() {
-        texturaFondo=new Texture("Pantalla_Acercade_00.png");
-    }
+    private void cargarTexturas() { texturaFondo=new Texture("Pantalla_Acercade_00.png"); }
 
     private void configurarVista() {
         camara=new OrthographicCamera();
@@ -93,7 +91,7 @@ class PantallaAcercaDe extends Pantalla {
         batch.setProjectionMatrix(camara.combined);
 
         batch.begin();
-        batch.draw(texturaFondo,ANCHO-texturaFondo.getWidth()-100,ALTO-texturaFondo.getHeight()-50);
+        batch.draw(texturaFondo,ANCHO-texturaFondo.getWidth()+13,ALTO-texturaFondo.getHeight()-50);
         //textoSprite.render(batch);
         batch.end();
 
