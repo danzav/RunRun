@@ -43,7 +43,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnJugar=new TextureRegionDrawable(new TextureRegion(new Texture("Play_Boton_00.png")));
         TextureRegionDrawable btnJugarOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Play_Push_Boton_00.png")));
         ImageButton btnInicioJuego= new ImageButton(btnJugar,btnJugarOprimido);
-        btnInicioJuego.setPosition(640-btnInicioJuego.getHeight()+30,0);
+        btnInicioJuego.setPosition(640-btnInicioJuego.getHeight()+30,70);
         //Siguientes Botones
         //Evento boton
         btnInicioJuego.addListener(new ClickListener(){
@@ -60,7 +60,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnAcerDe=new TextureRegionDrawable(new TextureRegion(new Texture("acercade_00.png")));
         TextureRegionDrawable btnAcerDeOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("Acercade_push.png")));
         ImageButton btnInicioAcerca= new ImageButton(btnAcerDe,btnAcerDeOprimido);
-        btnInicioAcerca.setPosition(400,0);
+        btnInicioAcerca.setPosition(450,50);
 
         btnInicioAcerca.addListener(new ClickListener(){
             @Override
@@ -76,7 +76,7 @@ public class PantallaMenu extends Pantalla {
         TextureRegionDrawable btnInst=new TextureRegionDrawable(new TextureRegion(new Texture("info_bnt_00.png")));
         TextureRegionDrawable btnInstOprimido= new TextureRegionDrawable(new TextureRegion(new Texture("info_push_Bnt.png")));
         ImageButton btnInicioInst= new ImageButton(btnInst,btnInstOprimido);
-        btnInicioInst.setPosition(732,0);
+        btnInicioInst.setPosition(690,50);
 
         btnInicioInst.addListener(new ClickListener(){
             @Override
