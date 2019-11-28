@@ -112,7 +112,7 @@ public class PantallaMenu extends Pantalla {
         }
         else{
             ImageButton btnMute= new ImageButton(btnMuteOn,btnMutePress,btnMuteOFF);
-            btnMute.setPosition(1000,ALTO/2);
+            btnMute.setPosition(ANCHO-btnMute.getHeight()-20,ALTO-btnMute.getHeight());
 
             btnMute.addListener(new ClickListener() {
                 @Override
