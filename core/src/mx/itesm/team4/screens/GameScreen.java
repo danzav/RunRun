@@ -44,7 +44,7 @@ public class GameScreen extends Pantalla implements Screen {
 
     public GameScreen(RunRun juego) {
         this.juego = juego;
-        stage = new GameStage();
+        stage = new GameStage(juego);
 
     }
 

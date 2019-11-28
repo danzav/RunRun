@@ -41,6 +41,7 @@ import mx.itesm.team4.actors.menu.PauseButton;
 import mx.itesm.team4.actors.menu.StartButton;
 import mx.itesm.team4.enums.Difficulty;
 import mx.itesm.team4.enums.GameState;
+import mx.itesm.team4.screens.GameOverScreen;
 import mx.itesm.team4.screens.GameScreen;
 import mx.itesm.team4.screens.Pantalla;
 import mx.itesm.team4.screens.PantallaMenu;
@@ -98,7 +99,21 @@ public class GameStage extends Stage implements ContactListener {
 
     }
     public GameStage(RunRun inicio){
+        super(new ScalingViewport(Scaling.stretch, VIEWPORT_WIDTH, VIEWPORT_HEIGHT,
+                new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT)));
         this.juego =inicio;
+        setUpStageBase();
+        setupTouchControlAreas();
+        setupCamera();
+        //Gdx.input.setInputProcessor(this);
+        //setUpMainMenu();
+        //onGameOver();
+        //setUpPause();
+        score1 = 0;
+        TextManager.initialize(200,200);
+        SpriteBatch batch = new SpriteBatch();
+        TextManager.displayMessage(batch);
+
     }
 
     private void setUpStageBase() {
@@ -146,7 +161,8 @@ public class GameStage extends Stage implements ContactListener {
             runner.hit();
             System.out.println("game over");
             System.out.println(scoreD.format(GameManager.score*multiplier));
-            world.dispose();
+            juego.setScreen(new PantallaMenu(juego));
+
         } else if ((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsGround(b)) ||
                 (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsRunner(b))) {
             runner.landed();
