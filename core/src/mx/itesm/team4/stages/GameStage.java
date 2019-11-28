@@ -28,6 +28,9 @@ import com.badlogic.gdx.utils.viewport.ScalingViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.awt.font.GraphicAttribute;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 
 import javax.xml.soap.Text;
 
@@ -79,7 +82,10 @@ public class GameStage extends Stage implements ContactListener {
     private Score score;
     private float totalTimePassed;
     private boolean tutorialShown;
+
+
     public static int score1;
+
 
     public GameStage() {
         super(new ScalingViewport(Scaling.stretch, VIEWPORT_WIDTH, VIEWPORT_HEIGHT,
